@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './ProductList.module.css'
 
 const ProductList = (props) => {
-    console.log(props)
+    // console.log(props)
   return (
     <div className="card w-75">
         <div className={classes['hover-zoom']}>
