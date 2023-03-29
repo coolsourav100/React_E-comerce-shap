@@ -1,6 +1,47 @@
 import React from 'react'
+import List from './List'
 
-const CartList = () => {
+const cartElements = [
+
+    {
+    
+    title: 'Colors',
+    
+    price: 100,
+    
+    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+    
+    quantity: 2,
+    
+    },
+    
+    {
+    
+    title: 'Black and white Colors',
+    
+    price: 50,
+    
+    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+    
+    quantity: 3,
+    
+    },
+    
+    {
+    
+    title: 'Yellow and Black Colors',
+    
+    price: 70,
+    
+    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+    
+    quantity: 1,
+    
+    }
+    
+    ]
+
+const CartList = (props) => {
   return (
     <div className="container card">
             <div className="row">
@@ -12,19 +53,7 @@ const CartList = () => {
                         </div>
                     </div>    
                     
-                    <div className="row">
-                        <div className="row main align-items-center">
-                            
-                            <div className="col">
-                                
-                                <div className="row ms-2">Cotton T-shirt</div>
-                            </div>
-                            <div className="col">
-                                <a href="#">-</a><a href="#" className="border">1</a><a href="#">+</a>
-                            </div>
-                            <div className="col">&euro; 44.00 <span className="close">&#10005;</span></div>
-                        </div>
-                    </div>
+                   {cartElements.map((item)=><List title={item.title} price={item.price} quantity={item.quantity}/>)}
                     
                     
                 </div>
@@ -33,7 +62,7 @@ const CartList = () => {
                     <hr/>
                     <div className="row">
                         <div className="col">TOTAL PRICE</div>
-                        <div className="col text-right">&euro; 137.00</div>
+                        <div className="col text-right">&euro; 220.00</div>
                     </div>
                     <button className="btn btn-primary mt-4">CHECKOUT</button>
                 </div>
