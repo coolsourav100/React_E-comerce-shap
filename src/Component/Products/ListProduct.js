@@ -2,6 +2,7 @@ import React from 'react'
 import ProductList from '../UI/ProductList'
  let productsArr = [
     {
+  
     title: 'Colors',
     price: 100,
     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',

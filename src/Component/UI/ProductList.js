@@ -1,8 +1,22 @@
-import React from 'react';
-import classes from './ProductList.module.css'
+import React, { useContext } from 'react';
+// import CartContext from '../../Store/cart-Context';
+import classes from './ProductList.module.css';
+import CartContext from '../../Store/cart-Context'
 
 const ProductList = (props) => {
-    // console.log(props)
+  const cartCTX = useContext(CartContext)
+  let {title , price} = props
+  const clickHandler=()=>{
+    console.log(cartCTX,'bnbnnb')
+     cartCTX.addCart({
+      id:Math.random(),
+      title:title,
+      price:price,
+      amount:1
+     })
+
+    }
+    console.log(cartCTX)
   return (
     <div className="card w-75">
         <div className={classes['hover-zoom']}>
@@ -11,7 +25,7 @@ const ProductList = (props) => {
   <div className="card-body">
     <h5 className="card-title">{props.title}</h5>
     <p className="card-text">{`Price: ₹ ${props.price}`}</p>
-    <button  className="btn btn-primary">Add to Cart</button>
+    <button  className="btn btn-primary" onClick={clickHandler}>Add to Cart</button>
   </div>
 </div>
   )

@@ -11,9 +11,11 @@ const BackDrop=(props)=>{
 }
 
 const OverLay =(props)=>{
+    
     return (
         <div className={classes.modal}>
             {props.children}
+            <button className='btn btn-danger mt-2' onClick={props.onHide}>Close</button>
         </div>
     )
 }
@@ -23,7 +25,7 @@ const Modal = (props) => {
   return (
     <div className={classes.modal}>
 {ReactDOM.createPortal(<BackDrop onHide={props.onHide}/>,portalElement)}
-{ReactDOM.createPortal(<OverLay>{props.children}</OverLay>,portalElement)}
+{ReactDOM.createPortal(<OverLay onHide={props.onHide}>{props.children}</OverLay>,portalElement)}
     </div>
   )
 }
