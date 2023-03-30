@@ -9,6 +9,7 @@ import { Route  ,BrowserRouter, Routes } from 'react-router-dom';
 // import { Route } from 'react-router-dom';
 import Home from './Component/Pages/Home';
 import About from './Component/Pages/About';
+import Store from './Component/Pages/Store';
 function App() {
   const[showModal , setShowModal] = useState(false)
   const showHandler=()=>{
@@ -23,10 +24,11 @@ setShowModal(!showModal)
     
       <Header onShow={showHandler}/>
       {showModal ? <Cart onHide={hideHandler}/> : null}
-      <Banner/>
+      
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/About' element={<About/>}/>
+        <Route path='/Store' element={<Store/>}/>
         </Routes>
       <Footer/>
       
