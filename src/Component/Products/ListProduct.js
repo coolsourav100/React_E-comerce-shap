@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import CartContext from '../../Store/cart-Context'
 import ProductList from '../UI/ProductList'
  let productsArr = [
     {
+  
     title: 'Colors',
     price: 100,
     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
@@ -23,7 +25,8 @@ import ProductList from '../UI/ProductList'
     }
     ]
 const ListProduct = () => {
-
+// const cartCTX = useContext(CartContext)
+// let productsArr = cartCTX.item
   return (
     <div className='d-flex justify-content-center'>
         

@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import CartContext from '../../Store/cart-Context'
+import List from './List'
 
-const CartList = () => {
+const CartList = (props) => {
+    const cartCTX = useContext(CartContext)
+    let cartElements = cartCTX.item
   return (
     <div className="container card">
             <div className="row">
@@ -8,23 +12,11 @@ const CartList = () => {
                     <div className="title">
                         <div className="row">
                             <div className="col"><h4><b>Shopping Cart</b></h4></div>
-                            <div className="col align-self-center text-right text-muted">3 items</div>
+                            
                         </div>
                     </div>    
                     
-                    <div className="row">
-                        <div className="row main align-items-center">
-                            
-                            <div className="col">
-                                
-                                <div className="row ms-2">Cotton T-shirt</div>
-                            </div>
-                            <div className="col">
-                                <a href="#">-</a><a href="#" className="border">1</a><a href="#">+</a>
-                            </div>
-                            <div className="col">&euro; 44.00 <span className="close">&#10005;</span></div>
-                        </div>
-                    </div>
+                   {cartElements.map((item)=><List id={item.id} amount={item.amount} title={item.title} price={item.price} />)}
                     
                     
                 </div>
@@ -33,9 +25,9 @@ const CartList = () => {
                     <hr/>
                     <div className="row">
                         <div className="col">TOTAL PRICE</div>
-                        <div className="col text-right">&euro; 137.00</div>
+                        <div className="col text-right">{`₹ ${cartCTX.toAmount}`}</div>
                     </div>
-                    <button className="btn btn-primary mt-4">CHECKOUT</button>
+                    <button className="btn btn-primary mt-4" >BUY</button>
                 </div>
             </div>
             
