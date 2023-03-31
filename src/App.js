@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
+import { Children, useState } from 'react';
 import Footer from './Component/Footer/Footer';
 import Header from './Component/Header/Header';
 import Banner from './Component/UI/Banner';
@@ -29,10 +29,10 @@ setShowModal(!showModal)
       
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/About' element={<About/>}/>
-        <Route path='/Store' element={<Store/>}/>
-        <Route path='/Contact' element={<Contact/>}/>
-        <Route path='/Store/:id' element={<Product/>}/>
+        <Route path='About' element={<About/>}/>
+        <Route path='Store' element={<Store/>}/>
+        <Route path='Contact' element={<Contact/>}/>
+        <Route path='Store/:id' element={<Product/>}/>
         </Routes>
       <Footer/>
       

@@ -36,7 +36,7 @@ const ListProduct = () => {
         
     <div className='row' >
     {productsArr.map((item)=>{
-return (<li className='col-6'><Link to={`/Store/${item.id}`}><ProductList title={item.title} price={item.price} imageUrl={item.imageUrl}/></Link></li>)
+return (<li className='col-6'><Link to={`${item.id}`}><ProductList title={item.title} price={item.price} imageUrl={item.imageUrl}/></Link></li>)
     })}
 </div>
 </div>

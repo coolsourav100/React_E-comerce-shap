@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 let productsArr = [
   {
     id: 1,
@@ -85,6 +85,9 @@ const Product = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="d-flex justify-content-center mt-4 my-4">
+      <Link to='..' relative="path"><button className="btn btn-dark">Back to the store</button></Link>
       </div>
     </div>
   );
