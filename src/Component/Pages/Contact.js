@@ -15,7 +15,7 @@ const Contact = () => {
 
   const changeHandler=(e)=>{
 setContactData({
-  ...contactData,[e.target.name]:e.target.value
+  ...contactData,[e.target.name]:e.target.value , id:Math.random()
 })
   }
   const submitHandler=async(e)=>{
