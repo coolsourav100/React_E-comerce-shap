@@ -10,6 +10,7 @@ import { Route  ,BrowserRouter, Routes } from 'react-router-dom';
 import Home from './Component/Pages/Home';
 import About from './Component/Pages/About';
 import Store from './Component/Pages/Store';
+import Contact from './Component/Pages/Contact';
 function App() {
   const[showModal , setShowModal] = useState(false)
   const showHandler=()=>{
@@ -29,6 +30,7 @@ setShowModal(!showModal)
         <Route path='/' element={<Home/>}/>
         <Route path='/About' element={<About/>}/>
         <Route path='/Store' element={<Store/>}/>
+        <Route path='/Contact' element={<Contact/>}/>
         </Routes>
       <Footer/>
       
