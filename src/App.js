@@ -11,6 +11,7 @@ import Home from './Component/Pages/Home';
 import About from './Component/Pages/About';
 import Store from './Component/Pages/Store';
 import Contact from './Component/Pages/Contact';
+import Product from './Component/Products/Product';
 function App() {
   const[showModal , setShowModal] = useState(false)
   const showHandler=()=>{
@@ -31,6 +32,7 @@ setShowModal(!showModal)
         <Route path='/About' element={<About/>}/>
         <Route path='/Store' element={<Store/>}/>
         <Route path='/Contact' element={<Contact/>}/>
+        <Route path='/Store/:id' element={<Product/>}/>
         </Routes>
       <Footer/>
       
