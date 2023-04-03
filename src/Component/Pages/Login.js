@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const cartCTX = useContext(CartContext)
-  console.log(cartCTX)
+  // console.log(cartCTX)
   const [isLogin, setIsLogin] = useState(cartCTX.isLoggedIn);
   const [enterEmail , setEnterEmail] = useState('')
   const [password , setPassword] = useState('')
@@ -35,9 +35,10 @@ if(isLogin){
       return res.json().then((data)=>window.alert(data.error.message))
     }
   }).then((res)=>{
+    console.log(res)
     cartCTX.login(res.idToken)
     navigate('/')
-    // console.log(res)})
+    localStorage.setItem('email', res.email)
     window.alert('LogIn Successful !!!')
   })
 

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, json, useParams } from "react-router-dom";
 import Footer from "../Footer/Footer";
+import CartContext from "../../Store/cart-Context";
 let productsArr = [
   {
     id: 1,
@@ -34,9 +35,32 @@ const Product = () => {
   console.log(param);
   const productItem = productsArr.filter((item) => item.id == param.id);
   console.log(...productItem);
-//   setPdetail(...productItem)
-//   const productDetail = (...productItem})
-//   console.log(pdetail)
+const cartCTX = useContext(CartContext)
+let toggle = cartCTX.toggle
+const email =localStorage.getItem('email').replace(/[@,.]/g,'-')
+
+const clickHandler=async()=>{
+  let data = {
+    id:Math.random(),
+    title:productItem[0].title,
+    price:productItem[0].price,
+    amount:1
+   }
+   
+
+   await fetch(`https://crudcrud.com/api/2ccae130c81c463eb862a2141cd4697c/cart${email}`,{
+    method:'POST',
+    body:JSON.stringify(data),
+    headers:{
+      'Content-Type': 'application/json'
+    }
+   }).then((res)=> res.json())
+   .then((res)=>console.log(res,'data'))
+   .catch(err=>console.log(err))
+   cartCTX.toggleHandler(!toggle)
+  }
+
+
   return (
     <div>
       <div class="container mt-5 mb-5">
@@ -76,7 +100,7 @@ const Product = () => {
                 </div>
                 <div class="buttons d-flex flex-row mt-5 gap-3">
                   <button class="btn btn-outline-dark">Buy Now</button>
-                  <button class="btn btn-dark">Add to Cart</button>
+                  <button class="btn btn-dark" onClick={clickHandler} >Add to Cart</button>
                 </div>
                 <div class="search-option">
                   <i class="bx bx-search-alt-2 first-search"></i>

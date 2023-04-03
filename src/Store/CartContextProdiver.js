@@ -1,4 +1,4 @@
-import { useReducer ,useState} from "react"
+import { useReducer, useState } from "react"
 import CartContext from "./cart-Context"
  const defaultState={
 item:[],
@@ -66,20 +66,25 @@ toAmount:0,
  }
 
 const CartContextProvider =(props)=>{
-  const initialToken = localStorage.getItem('token')
+  const inititialToken = localStorage.getItem('token')
   const [state, dispatch] = useReducer(cartReducer,defaultState)
- const [token , setToken] = useState(initialToken);
- const userIsLoggedIn = !! token
+  const [token , setToken] =useState(inititialToken);
+  const [toggle , setToggle] = useState(false)
+
+  const userIsLoggedIn = !! token
   const loginHandler=(token)=>{
     setToken(token)
     localStorage.setItem('token',token)
+
   }
 
   const logoutHandler=()=>{
     setToken(null)
     localStorage.removeItem('token')
   }
-
+  const toggleHandler=(toggle)=>{
+setToggle(!toggle)
+  }
   const cartValueContext ={
     item:state.item,
     toAmount:state.toAmount,
@@ -89,7 +94,10 @@ const CartContextProvider =(props)=>{
     logout: logoutHandler,
     addCart:((item)=>dispatch({type:"ADD",item:item})),
     removeCart:((id)=>dispatch({type:"REMOVE",id:id})),
-    editCart:((item)=>dispatch({type:"EDIT",item:item}))
+    editCart:((item)=>dispatch({type:"EDIT",item:item})),
+    toggleHandler: toggleHandler,
+    toggle:toggle
+    
   }
   return(
     <CartContext.Provider value={cartValueContext}>

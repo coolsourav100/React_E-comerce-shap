@@ -16,6 +16,7 @@ import Login from './Component/Pages/Login';
 import CartContext from './Store/cart-Context';
 function App() {
   const[showModal , setShowModal] = useState(false)
+
   const showHandler=()=>{
 setShowModal(!showModal)
   }
@@ -24,12 +25,11 @@ setShowModal(!showModal)
   }
   const cartCTX = useContext(CartContext)
   const isLoggedIn = cartCTX.isLoggedIn
+  
   return (
       <BrowserRouter>
-    
       <Header onShow={showHandler}/>
-      {showModal ? <Cart onHide={hideHandler}/> : null}
-      
+      {showModal ? <Cart onHide={hideHandler}/> : null} 
       <Routes>
         {!isLoggedIn && (<Route path='/' element={<Login/>}/>)}
         {isLoggedIn && <Route path='/' element={<Home/>}/>}
@@ -38,8 +38,6 @@ setShowModal(!showModal)
         {isLoggedIn && <Route path='Contact' element={<Contact/>}/>}
         {isLoggedIn && <Route path='Store/:id' element={<Product/>}/>}
         </Routes>
-      
-    
       </BrowserRouter>
   );
 }
