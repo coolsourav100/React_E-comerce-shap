@@ -1,5 +1,6 @@
 import React from 'react'
 import Banner from '../UI/Banner';
+import Footer from '../Footer/Footer';
 
 const albumData =[
     {date:'JUL16' , location:'DETROIT, MI', vanue :'DTE ENERGY MUSIC THEATRE'},
@@ -42,7 +43,7 @@ const Home = () => {
   </tbody>
 </table>
 </div>
-      
+      <Footer/>
     </>
   )
 }

@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import CartContext from '../../Store/cart-Context'
 import ProductList from '../UI/ProductList';
 import { Link } from 'react-router-dom';
+import Footer from '../Footer/Footer';
  let productsArr = [
     {
     id:1,
@@ -32,6 +33,7 @@ const ListProduct = () => {
 // const cartCTX = useContext(CartContext)
 // let productsArr = cartCTX.item
   return (
+    <>
     <div className='d-flex justify-content-center'>
         
     <div className='row' >
@@ -40,6 +42,8 @@ return (<li className='col-6'><Link to={`${item.id}`}><ProductList title={item.t
     })}
 </div>
 </div>
+<Footer/>
+</>
   )
 }
 

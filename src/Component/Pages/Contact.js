@@ -1,6 +1,7 @@
 import React ,{useState} from 'react'
 import { json } from 'react-router-dom'
 import Banner from '../UI/Banner'
+import Footer from '../Footer/Footer'
 
 const Contact = () => {
   const [contactData , setContactData] = useState({
@@ -99,6 +100,7 @@ console.log(err)
 </form>
  </div>
       </div>
+      <Footer/>
     </div>
   )
 }

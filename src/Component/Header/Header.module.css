@@ -5,3 +5,19 @@ a {
 a :hover {
     color: #607588;
 }
+
+.button {
+    font: inherit;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 77rem;
+  }
+  .button:hover {
+    background-color: #138b9b;
+    color: #d8d8d8;
+  }

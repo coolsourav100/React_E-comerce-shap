@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import Footer from "../Footer/Footer";
 let productsArr = [
   {
     id: 1,
@@ -89,6 +90,7 @@ const Product = () => {
       <div className="d-flex justify-content-center mt-4 my-4">
       <Link to='..' relative="path"><button className="btn btn-dark">Back to the store</button></Link>
       </div>
+      <Footer/>
     </div>
   );
 };

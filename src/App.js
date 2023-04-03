@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Children, useState } from 'react';
-import Footer from './Component/Footer/Footer';
+import { Children, useContext, useState } from 'react';
+
 import Header from './Component/Header/Header';
 import Banner from './Component/UI/Banner';
 import Cart from './Component/Cart/Cart';
@@ -12,6 +12,8 @@ import About from './Component/Pages/About';
 import Store from './Component/Pages/Store';
 import Contact from './Component/Pages/Contact';
 import Product from './Component/Products/Product';
+import Login from './Component/Pages/Login';
+import CartContext from './Store/cart-Context';
 function App() {
   const[showModal , setShowModal] = useState(false)
   const showHandler=()=>{
@@ -20,23 +22,24 @@ setShowModal(!showModal)
   const hideHandler=()=>{
     setShowModal(!showModal)
   }
+  const cartCTX = useContext(CartContext)
+  const isLoggedIn = cartCTX.isLoggedIn
   return (
       <BrowserRouter>
-    <CartContextProvider>
     
       <Header onShow={showHandler}/>
       {showModal ? <Cart onHide={hideHandler}/> : null}
       
       <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='About' element={<About/>}/>
-        <Route path='Store' element={<Store/>}/>
-        <Route path='Contact' element={<Contact/>}/>
-        <Route path='Store/:id' element={<Product/>}/>
+        {!isLoggedIn && (<Route path='/' element={<Login/>}/>)}
+        {isLoggedIn && <Route path='/' element={<Home/>}/>}
+        {isLoggedIn && <Route path='About' element={<About/>}/>}
+        {isLoggedIn && <Route path='Store' element={<Store/>}/>}
+        {isLoggedIn && <Route path='Contact' element={<Contact/>}/>}
+        {isLoggedIn && <Route path='Store/:id' element={<Product/>}/>}
         </Routes>
-      <Footer/>
       
-    </CartContextProvider>
+    
       </BrowserRouter>
   );
 }
